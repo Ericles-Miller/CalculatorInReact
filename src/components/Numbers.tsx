@@ -3,7 +3,7 @@ function Numbers() {
   return <div>
       <div className="flex gap-4 p-2">
         <div className="w-20 h-20 bg-linear-to-t from-[#EBEBEB] from-0.5% via-[#4c4a4f] via-0.9% to-[#2D2A37] to-100% rounded-lg shadow-xl p-6">
-          <p className="text-center text-amber-50 text-2xl">CE</p>
+          <button className="text-center text-amber-50 text-2xl">CE</button>
         </div>
         <div className="w-44 h-20 bg-[#67607d] rounded-lg shadow-xl p-6">
           <p className="text-center text-amber-50 text-2xl">C</p>
