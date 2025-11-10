@@ -1,5 +1,6 @@
 import Numbers from "./Numbers";
 import Operator from "./Operators";
+import Result from "./Result";
 
 function Calculator() {
   return (
@@ -7,6 +8,9 @@ function Calculator() {
       <h2 className="text-2xl font-bold text-center mb-4 text-white">
         Calculadora
       </h2>
+      <div>
+        <Result/>
+      </div>
       <div className="flex gap-4">
         <Numbers />
         <Operator />
