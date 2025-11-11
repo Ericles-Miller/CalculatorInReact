@@ -31,6 +31,10 @@ function Calculator() {
     if(operation && !isCalculated) {
       setOperation(prev => prev + operator);
     }
+
+    if(operator === '=' ) {
+      handleEquals();
+    }
   };
 
   const handleEquals = () => {
