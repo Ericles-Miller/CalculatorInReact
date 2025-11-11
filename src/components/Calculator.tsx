@@ -4,16 +4,26 @@ import Operator from "./Operators";
 import Result from "./Result";
 
 function Calculator() {
-  const [operation, setOperation] = useState('0');
-  const [result, setResult] = useState('0');
+  const [operation, setOperation] = useState('');
+  const [result, setResult] = useState('');
   const [isCalculated, setIsCalculated] = useState(false);
 
-  const handleNumberClick = (number: string) => {
+  const handleNumberClick = (buttonValue: string) => {
+    if (buttonValue === 'CE') {
+      handleClearEverything(); 
+      return;
+    }
+
+    if(buttonValue === 'C') {
+      handleClearEntry();
+      return;
+    }
+
     if(isCalculated) {
-      setOperation(number);
+      setOperation(buttonValue);
       setIsCalculated(false);
     } else {
-      setOperation(prev => prev + number.toString());
+      setOperation(prev => prev + buttonValue.toString());
     }
   };
 
@@ -24,17 +34,25 @@ function Calculator() {
   };
 
   const handleEquals = () => {
-  try {
-    // CUIDADO: eval é perigoso em produção!
-    // Melhor usar uma biblioteca como math.js
-    const calculatedResult = eval(  );
-    setResult(calculatedResult);
-    setIsCalculated(true);
-  } catch (error) {
-    setResult(0);
-    setOperation('');
+    try {
+      const calculatedResult = eval(operation); ;
+      setResult(calculatedResult);
+      setIsCalculated(true);
+    } catch (error) {
+      setResult(0);
+      setOperation('');
+    }
+  };
+
+  const handleClearEverything = () => {
+    setOperation(''); 
+    setResult('');
+    setIsCalculated(false);
+  };
+
+  const handleClearEntry = () => {
+    setOperation(prev => prev.slice(0, -1));
   }
-};
 
   return (
     <div className="w-393 h-196 bg-[#2D2A37] rounded-lg shadow-xl p-6">

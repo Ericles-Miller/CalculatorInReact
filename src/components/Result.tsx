@@ -1,6 +1,6 @@
 export interface ResultProps {
   operation: string;
-  result: number;
+  result: string;
 }
 
 function Result({ operation, result }: ResultProps) {
